@@ -1,37 +1,29 @@
 import { useState } from "react";
 
 function ProductCard({ product }) {
-  const [stock, setStock] = useState(product.stock);
-  const [isEditing, setIsEditing] = useState(false);
+  const [stock, setStock] = useState(product.stock || 0);
 
   return (
     <article className="product-card">
-      <div>
-        <h3>{product.name}</h3>
-        <p>{product.category}</p>
-      </div>
+      <h3>{product.name}</h3>
 
-      <div className="stock-row">
-        {isEditing ? (
-          <input
-            type="number"
-            value={stock}
-            min="0"
-            onChange={(event) => setStock(event.target.value)}
-            onBlur={() => setIsEditing(false)}
-            autoFocus
-          />
-        ) : (
-          <span className="stock-number">{stock}</span>
-        )}
+      <div className="controls-row">
+        <button
+          className="stock-btn minus"
+          onClick={() => setStock((current) => Math.max(0, current - 1))}
+          aria-label={`Decrease stock for ${product.name}`}
+        >
+          −
+        </button>
+
+        <span className="stock-number">{stock}</span>
 
         <button
-          className="edit-button"
-          type="button"
-          onClick={() => setIsEditing(true)}
-          aria-label={`Edit stock for ${product.name}`}
+          className="stock-btn plus"
+          onClick={() => setStock((current) => current + 1)}
+          aria-label={`Increase stock for ${product.name}`}
         >
-          ✏️
+          +
         </button>
       </div>
     </article>
