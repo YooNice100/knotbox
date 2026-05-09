@@ -4,17 +4,11 @@
 // import heroImg from './assets/hero.png'
 // import './App.css'
 
-
-import Navbar from "./components/Navbar";
-import Dashboard from "./components/Dashboard";
+import InventoryPage from "./pages/InventoryPage";
+import "./App.css";
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <Dashboard />
-    </div>
-  );
+  return <InventoryPage />;
 }
 
 export default App;

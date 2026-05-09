@@ -1,32 +1,75 @@
-import { products } from "../data/products";
-import ProductCard from "./ProductCard";
+export const products = [
+  { id: 1, category: "Farm", name: "White Chicken", stock: 4 },
+  { id: 2, category: "Farm", name: "Gold Feather Chicken", stock: 4 },
+  { id: 3, category: "Farm", name: "Golden Chicken", stock: 3 },
+  { id: 4, category: "Farm", name: "Brown Chicken", stock: 0 },
+  { id: 5, category: "Farm", name: "Black Chicken", stock: 1 },
+  { id: 6, category: "Farm", name: "Feathered Chicken", stock: 1 },
+  { id: 7, category: "Farm", name: "Chicken Keychain", stock: 2 },
+  { id: 8, category: "Farm", name: "Baby Pigs", stock: 2 },
+  { id: 9, category: "Farm", name: "Macon Bacon", stock: 2 },
+  { id: 10, category: "Farm", name: "Rat", stock: 1 },
+  { id: 11, category: "Farm", name: "Possum", stock: 3 },
+  { id: 12, category: "Farm", name: "Sad Hamster", stock: 0 },
 
-function Dashboard() {
-  const categories = [...new Set(products.map((product) => product.category))];
+  { id: 13, category: "Water", name: "Big Turtles", stock: 8 },
+  { id: 14, category: "Water", name: "Octopus", stock: 4 },
+  { id: 15, category: "Water", name: "Jellyfish", stock: 3 },
+  { id: 16, category: "Water", name: "Goldfish", stock: 0 },
+  { id: 17, category: "Water", name: "Crocodile", stock: 1 },
+  { id: 18, category: "Water", name: "Flamingo", stock: 0 },
+  { id: 19, category: "Water", name: "Blue Flamingo", stock: 1 },
+  { id: 20, category: "Water", name: "Axolotl", stock: 5 },
+  { id: 21, category: "Water", name: "Penguin Colored", stock: 2 },
+  { id: 22, category: "Water", name: "Regular Penguin", stock: 2 },
+  { id: 23, category: "Water", name: "Ducks in Hats", stock: 8 },
+  { id: 24, category: "Water", name: "Flower Duck", stock: 1 },
+  { id: 25, category: "Water", name: "Genna Duck", stock: 1 },
+  { id: 26, category: "Water", name: "Goose", stock: 0 },
 
-  return (
-    <main>
-      <h2>Inventory Dashboard</h2>
+  { id: 27, category: "Random", name: "Cookie", stock: 1 },
+  { id: 28, category: "Random", name: "Big Ice Cream", stock: 0 },
+  { id: 29, category: "Random", name: "Baby Ice Cream", stock: 0 },
+  { id: 30, category: "Random", name: "Sushi", stock: 2 },
+  { id: 31, category: "Random", name: "Jumbo Zombee", stock: 1 },
+  { id: 32, category: "Random", name: "Zombee Keychain", stock: 0 },
+  { id: 33, category: "Random", name: "Mini Leggy Heart", stock: 0 },
+  { id: 34, category: "Random", name: "Med Leggy Heart", stock: 1 },
+  { id: 35, category: "Random", name: "Weiner Dog", stock: 0 },
+  { id: 36, category: "Random", name: "Love Bugs", stock: 0 },
+  { id: 37, category: "Random", name: "Parakeet", stock: 1 },
+  { id: 38, category: "Random", name: "Mini Bees", stock: 3 },
+  { id: 39, category: "Random", name: "Roses", stock: 0 },
 
-      {categories.map((category) => {
-        const categoryProducts = products.filter(
-          (product) => product.category === category
-        );
+  { id: 40, category: "Characters", name: "Squidward", stock: 1 },
+  { id: 41, category: "Characters", name: "Ghastly", stock: 1 },
+  { id: 42, category: "Characters", name: "Snoopy", stock: 2 },
+  { id: 43, category: "Characters", name: "Big Hero 6", stock: 1 },
+  { id: 44, category: "Characters", name: "Dragon", stock: 2 },
+  { id: 45, category: "Characters", name: "Demogorgon", stock: 0 },
+  { id: 46, category: "Characters", name: "Mini Demogorgon", stock: 0 },
+  { id: 47, category: "Characters", name: "Baby Miffy", stock: 0 },
+  { id: 48, category: "Characters", name: "Minions", stock: 1 },
+  { id: 49, category: "Characters", name: "Big Unicorns", stock: 0 },
 
-        return (
-          <section key={category}>
-            <h3>{category}</h3>
+  { id: 50, category: "Loaf Cats", name: "Black/Orange Spot", stock: 1 },
+  { id: 51, category: "Loaf Cats", name: "Choco Swirl", stock: 1 },
+  { id: 52, category: "Loaf Cats", name: "Striped Orange", stock: 0 },
+  { id: 53, category: "Loaf Cats", name: "Bee Cats", stock: 1 },
+  { id: 54, category: "Loaf Cats", name: "Zombie Cats", stock: 2 },
+  { id: 55, category: "Loaf Cats", name: "Grey Cat", stock: 3 },
+  { id: 56, category: "Loaf Cats", name: "Gray Swirl", stock: 1 },
+  { id: 57, category: "Loaf Cats", name: "Black", stock: 1 },
+  { id: 58, category: "Loaf Cats", name: "Siamese", stock: 1 },
+  { id: 59, category: "Loaf Cats", name: "Black w Castle Spots", stock: 1 },
+  { id: 60, category: "Loaf Cats", name: "White w Orange Spots", stock: 0 },
+  { id: 61, category: "Loaf Cats", name: "White with Black Spots", stock: 0 },
 
-            <div>
-              {categoryProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          </section>
-        );
-      })}
-    </main>
-  );
-}
-
-export default Dashboard;
+  { id: 62, category: "Forest", name: "Triceratops", stock: 1 },
+  { id: 63, category: "Forest", name: "Baby Dragon", stock: 1 },
+  { id: 64, category: "Forest", name: "Stegosaurus", stock: 1 },
+  { id: 65, category: "Forest", name: "Leggy Frogs", stock: 4 },
+  { id: 66, category: "Forest", name: "Big Giraffe", stock: 1 },
+  { id: 67, category: "Forest", name: "Big Bears", stock: 3 },
+  { id: 68, category: "Forest", name: "Baby Bears", stock: 7 },
+];
