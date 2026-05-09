@@ -1,8 +1,20 @@
+import { useState } from "react";
 import { products } from "../data/products";
 import CategorySection from "../components/CategorySection";
 
 function InventoryPage() {
-  const categories = [...new Set(products.map((product) => product.category))];
+  const categories = ["All", ...new Set(products.map((p) => p.category))];
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const [searchText, setSearchText] = useState("");
+
+  const visibleProducts = products.filter((product) => {
+    const matchesCategory =
+      activeCategory === "All" || product.category === activeCategory;
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(searchText.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <main className="page">
@@ -12,19 +24,33 @@ function InventoryPage() {
         <p>Track handmade plushies, keychains, and market stock.</p>
       </header>
 
-      {categories.map((category) => {
-        const categoryProducts = products.filter(
-          (product) => product.category === category
-        );
+      <div className="filter-bar">
+        <label htmlFor="product-search">Search products</label>
+        <input
+          id="product-search"
+          type="text"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+          placeholder="Search by product name..."
+        />
+      </div>
 
-        return (
-          <CategorySection
+      <div className="tabs">
+        {categories.map((category) => (
+          <button
             key={category}
-            category={category}
-            products={categoryProducts}
-          />
-        );
-      })}
+            onClick={() => setActiveCategory(category)}
+            className={`tab ${activeCategory === category ? "active" : ""}`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <CategorySection
+        category={activeCategory}
+        products={visibleProducts}
+      />
     </main>
   );
 }
